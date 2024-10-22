@@ -26,7 +26,7 @@ class Compras(unittest.TestCase):
         cls.driver.quit()
     
     def setUp(self) -> None:
-        self.driver = webdriver.Chrome()
+        #self.driver = webdriver.Chrome()
         load_dotenv()
         base_url = os.getenv('BASE_URL')
         user = os.getenv('USER')
