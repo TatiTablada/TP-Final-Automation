@@ -16,17 +16,17 @@ class Compras(unittest.TestCase):
     def setUpClass(cls) -> None:
         options = Options()
         options.add_argument('--incognito')
-        options.add_argument('--headless')
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
+        options.add_argument('--disable-gpu')
         cls.driver = webdriver.Chrome(options=options)
 
 
     @classmethod
     def tearDownClass(cls) -> None:
-        cls.driver.close()
         cls.driver.quit()
     
     def setUp(self) -> None:
-        self.driver = webdriver.Chrome()
         load_dotenv()
         base_url = os.getenv('BASE_URL')
         user = os.getenv('USER')
