@@ -26,14 +26,14 @@ class Compras(unittest.TestCase):
         cls.driver.quit()
     
     def setUp(self) -> None:
-        #self.driver = webdriver.Chrome()
+        self.driver = webdriver.Chrome()
         load_dotenv()
-        #base_url = os.getenv('BASE_URL')
+        base_url = os.getenv('BASE_URL')
         user = os.getenv('USER')
         password = os.getenv('PASS')
         self.driver.maximize_window()
         self.driver.implicitly_wait(8)
-        #self.driver.get(base_url)
+        self.driver.get(base_url)
         page_login = Page_Login(self.driver)
         page_login.login(user,password)
         self.page_inventory = Page_Inventory(self.driver)
